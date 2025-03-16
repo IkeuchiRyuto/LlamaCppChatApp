@@ -6,23 +6,24 @@
 //
 
 import Foundation
+import MarkdownUI
 import SwiftUI
 
 struct LocalAIChatScreenView: View {
     @Environment(\.dismiss) var dismiss
-    //  @Environment(DeviceStat.self) private var deviceStat
     @StateObject var llamaState = LlamaState()
 
     @State private var multiLineText = ""
     @State var userPrompt = ""
-    @State private var progress = 0.0
-    @State private var downloadTask: URLSessionDownloadTask?
-    @State private var observation: NSKeyValueObservation?
+//    @State private var progress = 0.0
+//    @State private var downloadTask: URLSessionDownloadTask?
+//    @State private var observation: NSKeyValueObservation?
 
     @State private var messages: [ChatMessage] = [
         ChatMessage(content: "こんにちは", role: "user"),
         ChatMessage(content: "こんにちは!Phi-4-miniです。", role: "ai"),
     ]
+
 
     var body: some View {
         NavigationView {
@@ -35,19 +36,14 @@ struct LocalAIChatScreenView: View {
                                     ChatBubble(message: message)
                                 }
                             }
+                        }.onChange(of: llamaState.output) { newOutput in
+                            if let lastIndex = messages.indices.last,
+                                messages[lastIndex].role == "ai"
+                            {
+                                messages[lastIndex].content = newOutput
+                            }
+                            sp.scrollTo("bottom")
                         }
-                        Text(llamaState.messageLog)
-                            .font(.system(size: 12))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding()
-                        //            .onChange(of: slm.output) { newOutput in
-                        //              if slm.running, let lastIndex = messages.indices.last,
-                        //                messages[lastIndex].role == "ai"
-                        //              {
-                        //                messages[lastIndex].content = newOutput
-                        //              }
-                        //              sp.scrollTo("bottom")
-                        //            }
 
                         Spacer().frame(width: 1, height: 1).id("bottom")
                     }
@@ -70,12 +66,14 @@ struct LocalAIChatScreenView: View {
             }
             .padding(.horizontal, 60)
             .background(.BACKGROUND)
+            .navigationBarTitle(
+                llamaState.deviceStatus
+            )
             .navigationBarTitleDisplayMode(.inline)
         }
         .navigationViewStyle(.stack)
         .task {
-            //      _ = try? await slm.load()
-            load()
+            llamaState.load(modelName: "Phi-4-mini-instruct.Q8_0.gguf")
         }
     }
 
@@ -83,77 +81,83 @@ struct LocalAIChatScreenView: View {
         Task {
             messages.append(ChatMessage(content: userPrompt, role: "user"))
             messages.append(ChatMessage(content: "", role: "ai"))
-            await llamaState.complete(text: "こんにちは")
+            await llamaState.complete(text: userPrompt)
             userPrompt = ""
         }
     }
 
-    func getFileURL(filename: String) -> URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[
-            0
-        ].appendingPathComponent(filename)
-    }
+//    func getFileURL(filename: String) -> URL {
+//        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[
+//            0
+//        ].appendingPathComponent(filename)
+//    }
 
-    private func load() {
-        print(llamaState.downloadedModels)
-        print(llamaState.undownloadedModels)
-        let targetModel = llamaState.downloadedModels.first
-        let fileURL = getFileURL(filename: targetModel!.filename)
-        if !FileManager.default.fileExists(atPath: fileURL.path) {
-            download()
-            return
-        }
-        do {
-            try llamaState.loadModel(modelUrl: fileURL)
-        } catch let err {
-            print("Error: \(err.localizedDescription)")
-        }
-    }
-    
-    private func download() {
-//        status = "downloading"
-//        print("Downloading model \(modelName) from \(modelUrl)")
-        let targetModel = llamaState.downloadedModels.first
-        let modelUrl = targetModel!.url
-        let modelName = targetModel!.name
-        let filename = targetModel!.filename
-        guard let url = URL(string: modelUrl) else { return }
-        let fileURL = getFileURL(filename: filename)
+//    private func load() {
+//        let targetModel = llamaState.downloadedModels.first(where: { $0.filename == "Phi-4-mini-instruct.Q8_0.gguf" })
+//        print(targetModel)
+//        let fileURL = getFileURL(filename: targetModel!.filename)
+//        if !FileManager.default.fileExists(atPath: fileURL.path) {
+//            download()
+//            return
+//        }
+//        do {
+//            try llamaState.loadModel(modelUrl: fileURL)
+//        } catch let err {
+//            print("Error: \(err.localizedDescription)")
+//        }
+//    }
 
-        downloadTask = URLSession.shared.downloadTask(with: url) { temporaryURL, response, error in
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-                return
-            }
-
-            guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
-                print("Server error!")
-                return
-            }
-
-            do {
-                if let temporaryURL = temporaryURL {
-                    try FileManager.default.copyItem(at: temporaryURL, to: fileURL)
-                    print("Writing to \(filename) completed")
-
-                    llamaState.cacheCleared = false
-
-                    let model = Model(name: modelName, url: modelUrl, filename: filename, status: "downloaded")
-                    llamaState.downloadedModels.append(model)
-//                    status = "downloaded"
-                }
-            } catch let err {
-                print("Error: \(err.localizedDescription)")
-            }
-        }
-
-        observation = downloadTask?.progress.observe(\.fractionCompleted) { progress, _ in
-            self.progress = progress.fractionCompleted
-        }
-
-        downloadTask?.resume()
-    }
-
+//    private func download() {
+//        //        status = "downloading"
+//        //        print("Downloading model \(modelName) from \(modelUrl)")
+//        let targetModel = llamaState.downloadedModels.last
+//        let modelUrl = targetModel!.url
+//        let modelName = targetModel!.name
+//        let filename = targetModel!.filename
+//        guard let url = URL(string: modelUrl) else { return }
+//        let fileURL = getFileURL(filename: filename)
+//        print(targetModel)
+//        downloadTask = URLSession.shared.downloadTask(with: url) {
+//            temporaryURL, response, error in
+//            if let error = error {
+//                print("Error: \(error.localizedDescription)")
+//                return
+//            }
+//
+//            guard let response = response as? HTTPURLResponse,
+//                (200...299).contains(response.statusCode)
+//            else {
+//                print("Server error!")
+//                return
+//            }
+//
+//            do {
+//                if let temporaryURL = temporaryURL {
+//                    try FileManager.default.copyItem(
+//                        at: temporaryURL, to: fileURL)
+//                    print("Writing to \(filename) completed")
+//
+//                    llamaState.cacheCleared = false
+//
+//                    let model = Model(
+//                        name: modelName, url: modelUrl, filename: filename,
+//                        status: "downloaded")
+//                    llamaState.downloadedModels.append(model)
+//                    //                    status = "downloaded"
+//                }
+//            } catch let err {
+//                print("Error: \(err.localizedDescription)")
+//            }
+//        }
+//
+//        observation = downloadTask?.progress.observe(\.fractionCompleted) {
+//            progress, _ in
+//            self.progress = progress.fractionCompleted
+//            print(self.progress)
+//        }
+//
+//        downloadTask?.resume()
+//    }
 
 }
 
@@ -204,44 +208,44 @@ struct ChatBubble: View {
                         ).clipShape(
                             Circle()
                         )
-                        //            Markdown(message.content)
-                        //              .markdownBlockStyle(\.heading1) { configuration in
-                        //                configuration.label
-                        //                  .padding(8)
-                        //                  .markdownMargin(top: 0, bottom: 32)
-                        //                  .markdownTextStyle {
-                        //                    FontSize(24)
-                        //                    FontWeight(.bold)
-                        //                  }
-                        //              }
-                        //              .markdownBlockStyle(\.heading2) { configuration in
-                        //                configuration.label
-                        //                  .padding(8)
-                        //                  .markdownMargin(top: 0, bottom: 16)
-                        //                  .markdownTextStyle {
-                        //                    FontSize(16)
-                        //                    FontWeight(.bold)
-                        //                  }
-                        //              }
-                        //              .markdownBlockStyle(\.heading3) { configuration in
-                        //                configuration.label
-                        //                  .markdownMargin(top: 16, bottom: 8)
-                        //                  .markdownTextStyle {
-                        //                    FontSize(18)
-                        //                    FontWeight(.bold)
-                        //                  }
-                        //              }
-                        .textSelection(.enabled)
-                        .padding(16)
-                        .background(
-                            UnevenRoundedRectangle(
-                                topLeadingRadius: 16,
-                                bottomLeadingRadius: 0,
-                                bottomTrailingRadius: 16,
-                                topTrailingRadius: 16,
-                                style: .continuous
-                            ).foregroundStyle(.white)
-                        )
+                        Markdown(message.content)
+                            .markdownBlockStyle(\.heading1) { configuration in
+                                configuration.label
+                                    .padding(8)
+                                    .markdownMargin(top: 0, bottom: 32)
+                                    .markdownTextStyle {
+                                        FontSize(24)
+                                        FontWeight(.bold)
+                                    }
+                            }
+                            .markdownBlockStyle(\.heading2) { configuration in
+                                configuration.label
+                                    .padding(8)
+                                    .markdownMargin(top: 0, bottom: 16)
+                                    .markdownTextStyle {
+                                        FontSize(16)
+                                        FontWeight(.bold)
+                                    }
+                            }
+                            .markdownBlockStyle(\.heading3) { configuration in
+                                configuration.label
+                                    .markdownMargin(top: 16, bottom: 8)
+                                    .markdownTextStyle {
+                                        FontSize(18)
+                                        FontWeight(.bold)
+                                    }
+                            }
+                            .textSelection(.enabled)
+                            .padding(16)
+                            .background(
+                                UnevenRoundedRectangle(
+                                    topLeadingRadius: 16,
+                                    bottomLeadingRadius: 0,
+                                    bottomTrailingRadius: 16,
+                                    topTrailingRadius: 16,
+                                    style: .continuous
+                                ).foregroundStyle(.white)
+                            )
                     }
                 }
                 Spacer()
