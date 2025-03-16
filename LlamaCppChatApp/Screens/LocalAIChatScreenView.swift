@@ -30,6 +30,9 @@ struct LocalAIChatScreenView: View {
                 Text(String(format: "CPU Using: %.2f%%", cpuUsage))
                 Text("Memory Usage: \(memoryUsage / 1024 / 1024) MB")
                     .font(.system(size: 16))
+                Text("Generation Time: \(llamaState.generationTime) 秒")
+                    .font(.system(size: 16))
+                Text("Download: \(llamaState.progressTime * 100)%")
                 ScrollView(.vertical) {
                     ScrollViewReader { sp in
                         Group {

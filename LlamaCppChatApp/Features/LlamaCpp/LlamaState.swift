@@ -32,6 +32,7 @@ class LlamaState: ObservableObject {
     @Published var undownloadedModels: [Model] = []
     @Published var status = Status.loading
     @Published var progressTime: Double = 0
+    @Published var generationTime: Double = 0
 
     let NS_PER_S = 1_000_000_000.0
 
@@ -234,6 +235,7 @@ class LlamaState: ObservableObject {
                 self.deviceStatus = """
                     Heat up took \(t_heat)s Generated \(t_generation) s\n
                     """
+                self.generationTime = t_generation
             }
         }
     }
