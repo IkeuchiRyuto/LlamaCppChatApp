@@ -231,8 +231,8 @@ class LlamaState: ObservableObject {
             await llamaContext.clear()
             await MainActor.run {
                 self.batchOutput = self.output
-                self.deviceStatus += """
-                    Heat up took \(t_heat)s Generated \(tokens_per_second) t/s\n
+                self.deviceStatus = """
+                    Heat up took \(t_heat)s Generated \(t_generation) s\n
                     """
             }
         }
