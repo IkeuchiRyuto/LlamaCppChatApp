@@ -15,15 +15,10 @@ struct LocalAIChatScreenView: View {
 
     @State private var multiLineText = ""
     @State var userPrompt = ""
-//    @State private var progress = 0.0
-//    @State private var downloadTask: URLSessionDownloadTask?
-//    @State private var observation: NSKeyValueObservation?
-
     @State private var messages: [ChatMessage] = [
         ChatMessage(content: "こんにちは", role: "user"),
         ChatMessage(content: "こんにちは!Phi-4-miniです。", role: "ai"),
     ]
-
 
     var body: some View {
         NavigationView {
@@ -85,80 +80,6 @@ struct LocalAIChatScreenView: View {
             userPrompt = ""
         }
     }
-
-//    func getFileURL(filename: String) -> URL {
-//        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[
-//            0
-//        ].appendingPathComponent(filename)
-//    }
-
-//    private func load() {
-//        let targetModel = llamaState.downloadedModels.first(where: { $0.filename == "Phi-4-mini-instruct.Q8_0.gguf" })
-//        print(targetModel)
-//        let fileURL = getFileURL(filename: targetModel!.filename)
-//        if !FileManager.default.fileExists(atPath: fileURL.path) {
-//            download()
-//            return
-//        }
-//        do {
-//            try llamaState.loadModel(modelUrl: fileURL)
-//        } catch let err {
-//            print("Error: \(err.localizedDescription)")
-//        }
-//    }
-
-//    private func download() {
-//        //        status = "downloading"
-//        //        print("Downloading model \(modelName) from \(modelUrl)")
-//        let targetModel = llamaState.downloadedModels.last
-//        let modelUrl = targetModel!.url
-//        let modelName = targetModel!.name
-//        let filename = targetModel!.filename
-//        guard let url = URL(string: modelUrl) else { return }
-//        let fileURL = getFileURL(filename: filename)
-//        print(targetModel)
-//        downloadTask = URLSession.shared.downloadTask(with: url) {
-//            temporaryURL, response, error in
-//            if let error = error {
-//                print("Error: \(error.localizedDescription)")
-//                return
-//            }
-//
-//            guard let response = response as? HTTPURLResponse,
-//                (200...299).contains(response.statusCode)
-//            else {
-//                print("Server error!")
-//                return
-//            }
-//
-//            do {
-//                if let temporaryURL = temporaryURL {
-//                    try FileManager.default.copyItem(
-//                        at: temporaryURL, to: fileURL)
-//                    print("Writing to \(filename) completed")
-//
-//                    llamaState.cacheCleared = false
-//
-//                    let model = Model(
-//                        name: modelName, url: modelUrl, filename: filename,
-//                        status: "downloaded")
-//                    llamaState.downloadedModels.append(model)
-//                    //                    status = "downloaded"
-//                }
-//            } catch let err {
-//                print("Error: \(err.localizedDescription)")
-//            }
-//        }
-//
-//        observation = downloadTask?.progress.observe(\.fractionCompleted) {
-//            progress, _ in
-//            self.progress = progress.fractionCompleted
-//            print(self.progress)
-//        }
-//
-//        downloadTask?.resume()
-//    }
-
 }
 
 #Preview {
