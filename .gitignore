@@ -53,3 +53,4 @@ Carthage/Build/
 *.xcodeproj/project.pbxproj
 *.xcconfig
 .DS_Store
+llama.framework/
