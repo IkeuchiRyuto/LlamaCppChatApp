@@ -326,6 +326,7 @@ actor LlamaContext {
         tokens_list.removeAll()
         temporary_invalid_cchars.removeAll()
         llama_kv_cache_clear(context)
+        is_done = false
     }
 
     private func tokenize(text: String, add_bos: Bool) -> [llama_token] {
