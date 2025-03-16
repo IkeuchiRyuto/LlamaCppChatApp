@@ -19,10 +19,17 @@ struct LocalAIChatScreenView: View {
         ChatMessage(content: "こんにちは", role: "user"),
         ChatMessage(content: "こんにちは!Phi-4-miniです。", role: "ai"),
     ]
+    
+    @State private var cpuUsage: Float = 0.0
+    @State private var memoryUsage: UInt64 = 0
+    let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
+                Text(String(format: "CPU Using: %.2f%%", cpuUsage))
+                Text("Memory Usage: \(memoryUsage / 1024 / 1024) MB")
+                    .font(.system(size: 16))
                 ScrollView(.vertical) {
                     ScrollViewReader { sp in
                         Group {
@@ -68,7 +75,11 @@ struct LocalAIChatScreenView: View {
         }
         .navigationViewStyle(.stack)
         .task {
+            updateMetrics() 
             llamaState.load(modelName: "Phi-4-mini-instruct.Q8_0.gguf")
+        }
+        .onReceive(timer) { _ in
+            updateMetrics()
         }
     }
 
@@ -79,6 +90,79 @@ struct LocalAIChatScreenView: View {
             await llamaState.complete(text: userPrompt)
             userPrompt = ""
         }
+    }
+    
+    func updateMetrics() {
+        cpuUsage = getCPUUsage()
+        memoryUsage = getMemoryUsage()
+    }
+    
+    func getCPUUsage() -> Float {
+        var kr: kern_return_t
+
+        var threadList: thread_act_array_t?
+        var threadCount = mach_msg_type_number_t(0)
+        kr = task_threads(mach_task_self_, &threadList, &threadCount)
+        if kr != KERN_SUCCESS {
+            return -1
+        }
+
+        var totalUsage: Float = 0.0
+        if let threadList = threadList {
+            for i in 0..<Int(threadCount) {
+                var threadInfo = thread_basic_info()
+                var threadInfoCount = mach_msg_type_number_t(THREAD_INFO_MAX)
+                kr = withUnsafeMutablePointer(to: &threadInfo) {
+                    threadInfoPtr in
+                    threadInfoPtr.withMemoryRebound(
+                        to: integer_t.self, capacity: Int(threadInfoCount)
+                    ) { intPtr in
+                        thread_info(
+                            threadList[i],
+                            thread_flavor_t(THREAD_BASIC_INFO),
+                            intPtr,
+                            &threadInfoCount)
+                    }
+                }
+                if kr != KERN_SUCCESS {
+                    continue
+                }
+                if (threadInfo.flags & TH_FLAGS_IDLE) == 0 {
+                    totalUsage +=
+                        Float(threadInfo.cpu_usage) / Float(TH_USAGE_SCALE)
+                        * 100.0
+                }
+            }
+        }
+
+        // 取得したスレッドリストのメモリを解放
+        if let threadList = threadList {
+            let size =
+                vm_size_t(threadCount) * vm_size_t(MemoryLayout<thread_t>.size)
+            vm_deallocate(
+                mach_task_self_, vm_address_t(bitPattern: threadList), size)
+        }
+        return totalUsage
+    }
+
+    func getMemoryUsage() -> UInt64 {
+        var info = task_vm_info_data_t()
+        var count = mach_msg_type_number_t(
+            MemoryLayout<task_vm_info_data_t>.size / 4)
+        let kr = withUnsafeMutablePointer(to: &info) {
+            $0.withMemoryRebound(to: integer_t.self, capacity: Int(count)) {
+                pointer in
+                task_info(
+                    mach_task_self_, task_flavor_t(TASK_VM_INFO), pointer,
+                    &count)
+            }
+        }
+
+        if kr != KERN_SUCCESS {
+            return 0
+        }
+        // info.phys_footprint は実際に使用されている物理メモリ量（バイト単位）
+        return info.phys_footprint
     }
 }
 
