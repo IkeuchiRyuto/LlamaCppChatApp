@@ -97,7 +97,7 @@ struct LocalAIChatScreenView: View {
     private func load() {
         print(llamaState.downloadedModels)
         print(llamaState.undownloadedModels)
-        let targetModel = llamaState.downloadedModels.last
+        let targetModel = llamaState.downloadedModels.first
         let fileURL = getFileURL(filename: targetModel!.filename)
         if !FileManager.default.fileExists(atPath: fileURL.path) {
             download()
@@ -113,7 +113,7 @@ struct LocalAIChatScreenView: View {
     private func download() {
 //        status = "downloading"
 //        print("Downloading model \(modelName) from \(modelUrl)")
-        let targetModel = llamaState.downloadedModels.last
+        let targetModel = llamaState.downloadedModels.first
         let modelUrl = targetModel!.url
         let modelName = targetModel!.name
         let filename = targetModel!.filename

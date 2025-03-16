@@ -127,18 +127,14 @@ class LlamaState: ObservableObject {
 
 
     func complete(text: String) async {
-        print("1")
         guard let llamaContext else {
-            print("1.5")
             return
         }
 
         let t_start = DispatchTime.now().uptimeNanoseconds
-        print("2")
         await llamaContext.completion_init(text: text)
         let t_heat_end = DispatchTime.now().uptimeNanoseconds
         let t_heat = Double(t_heat_end - t_start) / NS_PER_S
-        print("3")
         messageLog += "\(text)"
 
         Task.detached {
