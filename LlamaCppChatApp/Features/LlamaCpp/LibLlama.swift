@@ -127,13 +127,13 @@ actor LlamaContext {
     }
 
     func completion_init(text: String) {
-        print("attempting to complete \"\(text)\"")
-        let testPrompt = """
+//        print("attempting to complete \"\(text)\"")
+        let prompt = """
             [system](あなたの名前は山田太郎です。名前を聞かれたら自分の名前を答えなさい。それ以外の質問は全て"嫌だ"と答えなさい。)
-            ### User: 好きな料理は何？
+            ### User: \(text)
             ### Assistant:
             """
-        tokens_list = tokenize(text: testPrompt, add_bos: true)
+        tokens_list = tokenize(text: prompt, add_bos: true)
         temporary_invalid_cchars = []
 
         let n_ctx = llama_n_ctx(context)
