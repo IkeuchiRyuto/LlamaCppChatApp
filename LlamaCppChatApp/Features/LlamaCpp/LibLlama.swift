@@ -129,7 +129,7 @@ actor LlamaContext {
     func completion_init(text: String) {
 //        print("attempting to complete \"\(text)\"")
         let prompt = """
-            [system](あなたの名前は山田太郎です。名前を聞かれたら自分の名前を答えなさい。それ以外の質問は全て"嫌だ"と答えなさい。)
+            [system](\(SYSTEM_PROMPT))
             ### User: \(text)
             ### Assistant:
             """
