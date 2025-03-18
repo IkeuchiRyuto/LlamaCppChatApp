@@ -1,0 +1,685 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC25A5372D857D2800303C26 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC25A5362D857D2800303C26 /* Accelerate.framework */; };
+		AC25A58D2D85933A00303C26 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC25A5382D857D3500303C26 /* Metal.framework */; };
+		AC25A5902D85934700303C26 /* llama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC25A58B2D8592CB00303C26 /* llama.framework */; };
+		AC25A5912D85934700303C26 /* llama.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC25A58B2D8592CB00303C26 /* llama.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AC25A5992D86A10E00303C26 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = AC25A5982D86A10E00303C26 /* MarkdownUI */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC9EF3442D855BB500E9FE87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC9EF3282D855BB100E9FE87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC9EF32F2D855BB100E9FE87;
+			remoteInfo = LlamaCppChatApp;
+		};
+		AC9EF34E2D855BB500E9FE87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC9EF3282D855BB100E9FE87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC9EF32F2D855BB100E9FE87;
+			remoteInfo = LlamaCppChatApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AC25A5922D85934700303C26 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AC25A5912D85934700303C26 /* llama.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AC25A5362D857D2800303C26 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
+		AC25A5382D857D3500303C26 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
+		AC25A58B2D8592CB00303C26 /* llama.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = llama.framework; sourceTree = "<group>"; };
+		AC9EF3302D855BB100E9FE87 /* LlamaCppChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LlamaCppChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC9EF3432D855BB500E9FE87 /* LlamaCppChatAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LlamaCppChatAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC9EF34D2D855BB500E9FE87 /* LlamaCppChatAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LlamaCppChatAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AC9EF4D02D8570D800E9FE87 /* Exceptions for "LlamaCppChatApp" folder in "LlamaCppChatApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AC9EF32F2D855BB100E9FE87 /* LlamaCppChatApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AC9EF3322D855BB100E9FE87 /* LlamaCppChatApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AC9EF4D02D8570D800E9FE87 /* Exceptions for "LlamaCppChatApp" folder in "LlamaCppChatApp" target */,
+			);
+			path = LlamaCppChatApp;
+			sourceTree = "<group>";
+		};
+		AC9EF3462D855BB500E9FE87 /* LlamaCppChatAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LlamaCppChatAppTests;
+			sourceTree = "<group>";
+		};
+		AC9EF3502D855BB500E9FE87 /* LlamaCppChatAppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LlamaCppChatAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC9EF32D2D855BB100E9FE87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC25A58D2D85933A00303C26 /* Metal.framework in Frameworks */,
+				AC25A5902D85934700303C26 /* llama.framework in Frameworks */,
+				AC25A5372D857D2800303C26 /* Accelerate.framework in Frameworks */,
+				AC25A5992D86A10E00303C26 /* MarkdownUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC9EF3402D855BB500E9FE87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC9EF34A2D855BB500E9FE87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC25A51A2D857B4300303C26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC25A5382D857D3500303C26 /* Metal.framework */,
+				AC25A5362D857D2800303C26 /* Accelerate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC9EF3272D855BB100E9FE87 = {
+			isa = PBXGroup;
+			children = (
+				AC9EF3322D855BB100E9FE87 /* LlamaCppChatApp */,
+				AC9EF3462D855BB500E9FE87 /* LlamaCppChatAppTests */,
+				AC9EF3502D855BB500E9FE87 /* LlamaCppChatAppUITests */,
+				AC25A51A2D857B4300303C26 /* Frameworks */,
+				AC9EF3312D855BB100E9FE87 /* Products */,
+				AC25A58B2D8592CB00303C26 /* llama.framework */,
+			);
+			sourceTree = "<group>";
+		};
+		AC9EF3312D855BB100E9FE87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC9EF3302D855BB100E9FE87 /* LlamaCppChatApp.app */,
+				AC9EF3432D855BB500E9FE87 /* LlamaCppChatAppTests.xctest */,
+				AC9EF34D2D855BB500E9FE87 /* LlamaCppChatAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC9EF32F2D855BB100E9FE87 /* LlamaCppChatApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC9EF3572D855BB500E9FE87 /* Build configuration list for PBXNativeTarget "LlamaCppChatApp" */;
+			buildPhases = (
+				AC9EF32C2D855BB100E9FE87 /* Sources */,
+				AC9EF32D2D855BB100E9FE87 /* Frameworks */,
+				AC9EF32E2D855BB100E9FE87 /* Resources */,
+				AC25A5922D85934700303C26 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AC9EF3322D855BB100E9FE87 /* LlamaCppChatApp */,
+			);
+			name = LlamaCppChatApp;
+			packageProductDependencies = (
+				AC25A5982D86A10E00303C26 /* MarkdownUI */,
+			);
+			productName = LlamaCppChatApp;
+			productReference = AC9EF3302D855BB100E9FE87 /* LlamaCppChatApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AC9EF3422D855BB500E9FE87 /* LlamaCppChatAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC9EF35A2D855BB500E9FE87 /* Build configuration list for PBXNativeTarget "LlamaCppChatAppTests" */;
+			buildPhases = (
+				AC9EF33F2D855BB500E9FE87 /* Sources */,
+				AC9EF3402D855BB500E9FE87 /* Frameworks */,
+				AC9EF3412D855BB500E9FE87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC9EF3452D855BB500E9FE87 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				AC9EF3462D855BB500E9FE87 /* LlamaCppChatAppTests */,
+			);
+			name = LlamaCppChatAppTests;
+			packageProductDependencies = (
+			);
+			productName = LlamaCppChatAppTests;
+			productReference = AC9EF3432D855BB500E9FE87 /* LlamaCppChatAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AC9EF34C2D855BB500E9FE87 /* LlamaCppChatAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC9EF35D2D855BB500E9FE87 /* Build configuration list for PBXNativeTarget "LlamaCppChatAppUITests" */;
+			buildPhases = (
+				AC9EF3492D855BB500E9FE87 /* Sources */,
+				AC9EF34A2D855BB500E9FE87 /* Frameworks */,
+				AC9EF34B2D855BB500E9FE87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC9EF34F2D855BB500E9FE87 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				AC9EF3502D855BB500E9FE87 /* LlamaCppChatAppUITests */,
+			);
+			name = LlamaCppChatAppUITests;
+			packageProductDependencies = (
+			);
+			productName = LlamaCppChatAppUITests;
+			productReference = AC9EF34D2D855BB500E9FE87 /* LlamaCppChatAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC9EF3282D855BB100E9FE87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					AC9EF32F2D855BB100E9FE87 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					AC9EF3422D855BB500E9FE87 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = AC9EF32F2D855BB100E9FE87;
+					};
+					AC9EF34C2D855BB500E9FE87 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = AC9EF32F2D855BB100E9FE87;
+					};
+				};
+			};
+			buildConfigurationList = AC9EF32B2D855BB100E9FE87 /* Build configuration list for PBXProject "LlamaCppChatApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC9EF3272D855BB100E9FE87;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				AC25A5972D86A10E00303C26 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = AC9EF3312D855BB100E9FE87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC9EF32F2D855BB100E9FE87 /* LlamaCppChatApp */,
+				AC9EF3422D855BB500E9FE87 /* LlamaCppChatAppTests */,
+				AC9EF34C2D855BB500E9FE87 /* LlamaCppChatAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC9EF32E2D855BB100E9FE87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC9EF3412D855BB500E9FE87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC9EF34B2D855BB500E9FE87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC9EF32C2D855BB100E9FE87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC9EF33F2D855BB500E9FE87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC9EF3492D855BB500E9FE87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC9EF3452D855BB500E9FE87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC9EF32F2D855BB100E9FE87 /* LlamaCppChatApp */;
+			targetProxy = AC9EF3442D855BB500E9FE87 /* PBXContainerItemProxy */;
+		};
+		AC9EF34F2D855BB500E9FE87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC9EF32F2D855BB100E9FE87 /* LlamaCppChatApp */;
+			targetProxy = AC9EF34E2D855BB500E9FE87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AC9EF3552D855BB500E9FE87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AC9EF3562D855BB500E9FE87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		AC9EF3582D855BB500E9FE87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LlamaCppChatApp/LlamaCppChatApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LlamaCppChatApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 7RWTFT6FY2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LlamaCppChatApp/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ikeuchiryuto.LlamaCppChatApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		AC9EF3592D855BB500E9FE87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LlamaCppChatApp/LlamaCppChatApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LlamaCppChatApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 7RWTFT6FY2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LlamaCppChatApp/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ikeuchiryuto.LlamaCppChatApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		AC9EF35B2D855BB500E9FE87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7RWTFT6FY2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ikeuchiryuto.LlamaCppChatAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LlamaCppChatApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LlamaCppChatApp";
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		AC9EF35C2D855BB500E9FE87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7RWTFT6FY2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ikeuchiryuto.LlamaCppChatAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LlamaCppChatApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LlamaCppChatApp";
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		AC9EF35E2D855BB500E9FE87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7RWTFT6FY2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ikeuchiryuto.LlamaCppChatAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = LlamaCppChatApp;
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		AC9EF35F2D855BB500E9FE87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7RWTFT6FY2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ikeuchiryuto.LlamaCppChatAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = LlamaCppChatApp;
+				XROS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC9EF32B2D855BB100E9FE87 /* Build configuration list for PBXProject "LlamaCppChatApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC9EF3552D855BB500E9FE87 /* Debug */,
+				AC9EF3562D855BB500E9FE87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC9EF3572D855BB500E9FE87 /* Build configuration list for PBXNativeTarget "LlamaCppChatApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC9EF3582D855BB500E9FE87 /* Debug */,
+				AC9EF3592D855BB500E9FE87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC9EF35A2D855BB500E9FE87 /* Build configuration list for PBXNativeTarget "LlamaCppChatAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC9EF35B2D855BB500E9FE87 /* Debug */,
+				AC9EF35C2D855BB500E9FE87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC9EF35D2D855BB500E9FE87 /* Build configuration list for PBXNativeTarget "LlamaCppChatAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC9EF35E2D855BB500E9FE87 /* Debug */,
+				AC9EF35F2D855BB500E9FE87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC25A5972D86A10E00303C26 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC25A5982D86A10E00303C26 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC25A5972D86A10E00303C26 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = AC9EF3282D855BB100E9FE87 /* Project object */;
+}
